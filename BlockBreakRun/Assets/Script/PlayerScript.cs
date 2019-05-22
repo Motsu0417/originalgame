@@ -1,38 +1,50 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour {
     public int speed = 10;
     public Camera maincamera;
-    public float tics;
-    public long timer;
+    public GameObject[] tools = new GameObject[4];
+    public GameObject HandingTool;
+    public Slider runGage;
+    private CharacterController controller;
+    private Vector3 moveVec;
 
 	// Use this for initialization
 	void Start () {
-        tics = 0.0f;
-        timer = 0;
+        HandingTool = tools[3];
+        controller = GetComponent<CharacterController>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         //姿勢強制
         gameObject.transform.rotation *= new Quaternion(0, 0, 0, 0);
-        //進行系
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            gameObject.transform.position = new Vector3(10,1,gameObject.transform.position.z + 1 * Time.deltaTime *speed);
-        }
+        //前進
+        moveVec.z = speed;
 
-        //秒数管理 
-        tics += Time.deltaTime;
-        if (tics > 1)
-        {
-            timer++;
-            tics--;
-        }
+        //画面左runゲージ
+        //104,504
+        runGage.value = (gameObject.transform.position.z - 104) / 400;
 
-        //あるく動き
+        //ジャンプ処理
+        if (controller.isGrounded) { if (Input.GetKeyDown(KeyCode.Space)) { moveVec.y = 15 - 10 * Time.deltaTime; } }
+
+        //ベクターのコミット
+        controller.Move(moveVec * Time.deltaTime);
 	}
+
+   public void setToolChange(int num) { HandingTool = tools[num]; }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name.Equals("Goal"))
+        {
+            SceneManager.LoadScene("Goal");
+        }
+
+    }
 }

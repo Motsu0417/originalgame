@@ -6,4 +6,5 @@ public abstract class ToolScript : ItemScript {
     public string tool;
     public int durability;
     public int dmgDurability;
+    public int attackPower;
 }

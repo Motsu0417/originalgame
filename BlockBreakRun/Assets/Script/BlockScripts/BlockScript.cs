@@ -7,5 +7,6 @@ public abstract class BlockScript : ItemScript {
     public string material;
     public string aptitude;
     public int hardend;
+    public string weekdirec = "none";
     
 }
