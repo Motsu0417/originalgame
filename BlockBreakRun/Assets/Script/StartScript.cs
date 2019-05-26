@@ -11,6 +11,8 @@ public class StartScript : MonoBehaviour {
     public Animation CntAnimation;
     public int timecount;
     public Text countText;
+    public GameObject text;
+    bool sound = true;
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +36,11 @@ public class StartScript : MonoBehaviour {
                 countText.text = (6 - timecount) + "";
                 CntAnimation.Stop();
                 CntAnimation.Play();
+                if (sound)
+                {
+                    text.GetComponent<AudioSource>().Play();
+                    sound = false;
+                }
             }
             timecount++;
             timer--;

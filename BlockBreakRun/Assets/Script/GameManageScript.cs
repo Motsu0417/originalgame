@@ -34,8 +34,11 @@ public class GameManageScript : MonoBehaviour {
     //menuのスクリプト
     public void ClickPoseButton()
     {
-        panel.SetActive(true);
-        isGameRunnig = false;
+        if (isGameRunnig)
+        {
+            panel.SetActive(true);
+            isGameRunnig = false;
+        }
     }
 
     public void menu_Title()

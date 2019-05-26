@@ -1,11 +1,11 @@
 Android
 PlayerPath?
-C:/Users/user/Desktop/UnityFolder/BlockBreakRun/BlockBreakRun_ver6.apk
+C:/Users/user/Desktop/UnityFolder/BlockBreakRun/BlockBreakRun_ver7.apk
 SceneListBegin?
 Assets/Scenes/Title.unity
 Assets/Scenes/Main.unity
-Assets/Scenes/GameOver.unity
 Assets/Scenes/Goal.unity
+Assets/Scenes/GameOver.unity
 SceneListEnd?
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 4b12dd839b2293f8457cd67cc3610b85 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -114,7 +114,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 841e8d92858a3b287132cd579e1afabf Assembly-CSharp.dll:.PlayerScript
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TitleScript
-6575b87e7f77a32f404d886f978f261e Assembly-CSharp.dll:.DestroyScript
+1d4066707d8d5c478cfa0a7954559f65 Assembly-CSharp.dll:.DestroyScript
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -139,7 +139,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
-619db996db30ca2caf0e7123aa4a62b1 Assembly-CSharp.dll:.StartScript
+66d9456f92fbf47237286d0232adb017 Assembly-CSharp.dll:.StartScript
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 de4d9d052ba4d30c8e1d66d73b186762 UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
@@ -159,6 +159,64 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 91c41ad045951a4382ac45cf3a3d701a Assembly-CSharp.dll:.PickAxeScript
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 4f639bb7b5ea0968d7298bca750c12ee Assembly-CSharp.dll:.IronBlockScript
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.FlickManager
 91c41ad045951a4382ac45cf3a3d701a Assembly-CSharp.dll:.HummerScript
 91c41ad045951a4382ac45cf3a3d701a Assembly-CSharp.dll:.HandScript
+d13cb20f7dce056123d7aa19e4181bd5 Assembly-CSharp.dll:.InteractableObject
+14f68d33ee24d866cb0600550fd49699 Assembly-CSharp.dll:.SavableDesk
+a0ba24db34fcd7004b181ff101730af9 Assembly-CSharp.dll:.CraftingDesk
+410802dfc22342a8e1b660af9f470402 Assembly-CSharp.dll:.Armor
+3bb1324b0e4d9498b27e6fd9716f4b38 Assembly-CSharp.dll:.DoorOpenCloseController
+b36e97b396a5661993e05ba6ad4b8929 Assembly-CSharp.dll:.Conductor
+ed70c30e789ab268bcfa6ba785bbd18f Assembly-CSharp.dll:.OreStone
+14f68d33ee24d866cb0600550fd49699 Assembly-CSharp.dll:.SavableStone
+8328ba546c0a6df2091f5a6959bf3f0e Assembly-CSharp.dll:.SceneSelector
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.HitableAnvil
+8a684a0651b8e9643423e7acc1585904 Assembly-CSharp.dll:.CraftCharacterController
+9c043ab0a11d5ace43c685902fbccacf Assembly-CSharp.dll:.CellRenderer
+ef205b8f519a673a0460275323830af4 Assembly-CSharp.dll:.HitableLog
+f857bb92ceaff8a91a45b3f28ac0f5af Assembly-CSharp.dll:.OvenContainer
+f25302a966173303806267888c6bd057 Assembly-CSharp.dll:.SaveAndLoadSettings
+5c87bcaa804093cf0614f06779f7cb87 Assembly-CSharp.dll:.Ore
+5dc004859229f1aaa5f1e1524e593705 Assembly-CSharp.dll:.HitableStone
+169a9c31e1eb66e731b75c0726304a99 Assembly-CSharp.dll:.Tool
+ae78074e36fa68ee051d41996947acae Assembly-CSharp.dll:.CellArmor
+502efa9c69fdb9745641225121d4fe3a Assembly-CSharp.dll:.PlacementManager
+076144b176a2b7e2feeb249a5e969b02 Assembly-CSharp.dll:.OvenRack
+53462232f721defb764fc4a8c20f7975 Assembly-CSharp.dll:.CraftingDeskWorkplace
+14f68d33ee24d866cb0600550fd49699 Assembly-CSharp.dll:.SavableTree
+1127fe4d7e9d0763c2341eb9f5abf32f Assembly-CSharp.dll:.Fuel
+aa4ac5716b96d17a8dcd14ec144a6bda Assembly-CSharp.dll:.ToolActionController
+284d038e2de5cdbd845fa580feacb9c2 Assembly-CSharp.dll:.OvenCentralController
+169353f3246bb24d3f46be4923e44fca Assembly-CSharp.dll:.CraftCharacterView
+d13cb20f7dce056123d7aa19e4181bd5 Assembly-CSharp.dll:.BedGameSaver
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.HitableObject
+f479ee8936bf518533619ac93a9a6b02 Assembly-CSharp.dll:.HitableTree
+14f68d33ee24d866cb0600550fd49699 Assembly-CSharp.dll:.SavableAnvil
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlacableItem
+a567d078dc6e9829822208c812f0e530 Assembly-CSharp.dll:.Blank
+cafc78925eabcafb44c6aeed80259bdf Assembly-CSharp.dll:.InteractableAnvil
+b2696d58984daa96496ce9a1eea4db2e Assembly-CSharp.dll:.Inventory
+6735c01136ecf2262380784d23573280 Assembly-CSharp.dll:.GameManager
+29e71c8f9f5e65a35072b39b30e99842 Assembly-CSharp.dll:.AccessViaRayCast
+43fc8deb495803a042b9c224af7da4d5 Assembly-CSharp.dll:.MenuController
+d13cb20f7dce056123d7aa19e4181bd5 Assembly-CSharp.dll:.ChairInteraction
+5f8e7c7b8215f5731beb5107b156ac59 Assembly-CSharp.dll:.HeadRotationWithMouseController
+f857bb92ceaff8a91a45b3f28ac0f5af Assembly-CSharp.dll:.OvenOreContainer
+90a85067ed12f6a50019252cc8165fa2 Assembly-CSharp.dll:.PopUpMessage
+9c043ab0a11d5ace43c685902fbccacf Assembly-CSharp.dll:.CellCraft
+2e41b367c4028dd82375ce152cfcbc09 Assembly-CSharp.dll:.Layout
+d13cb20f7dce056123d7aa19e4181bd5 Assembly-CSharp.dll:.Chest
+14f68d33ee24d866cb0600550fd49699 Assembly-CSharp.dll:.SavableChest
+f7263068aa879ad4b0cd2c01d11e19b7 Assembly-CSharp.dll:.HitableRock
+14f68d33ee24d866cb0600550fd49699 Assembly-CSharp.dll:.SavableOven
+14f68d33ee24d866cb0600550fd49699 Assembly-CSharp.dll:.Savable
+1672f5de69e0b1d3d2d99fdeca278e9e Assembly-CSharp.dll:.InputManager
+dee810de16b8c90c0b9d9aeaa404f348 Assembly-CSharp.dll:.MovingController
+14f68d33ee24d866cb0600550fd49699 Assembly-CSharp.dll:.SavableOreStone
+809ebb85c9b1d181063d9f0239d400cc Assembly-CSharp.dll:.CrafterButton
+86d9a98d15e3326688d8261aa74daf73 Assembly-CSharp.dll:.GameRecorder
+79d5684699889a36c91580a1dfef62af Assembly-CSharp.dll:.ContainerElement
+70d4ce612d69d7339cc93e3c5fae65a5 Assembly-CSharp.dll:.Torch
+f0e834f74073397a32ebd9ea7b48bbe2 Assembly-CSharp.dll:.FireMover
+79b64e692d41a91f03befb1b7d96b71f Assembly-CSharp.dll:.ItemDescription
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CellOnCursor

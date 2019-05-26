@@ -9,10 +9,12 @@ public class DestroyScript : MonoBehaviour {
     public Camera playerCamera;
     public GameObject toolhand;
     public GameObject dmgtxtManager;
+    public GameObject GameManager;
     public Text damageText,text;
     private Vector3 touchdown, touchup;
     private int hosei;
     private string FlickDirection;
+    public AudioClip[] BlockClips = new AudioClip[6];
 
     Animation anim,dmgtxtanim;
     Ray ray;
@@ -28,25 +30,30 @@ public class DestroyScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        text.text = Input.mousePosition.ToString();
-        if (Input.GetMouseButtonDown(0))
+        //text.text = Input.mousePosition.ToString();
+        if (GameManager.GetComponent<GameManageScript>().isGameRunnig)
         {
-            touchdown = Input.mousePosition;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            touchup = Input.mousePosition;
-            Doattack();
-        }
-        if (Input.GetKey(KeyCode.B))
-        {
-            ray = playerCamera.ScreenPointToRay(Input.mousePosition);
-            //rayが当たっている物と当たっているかの判定
-            if (Physics.Raycast(ray, out hitInfo, reachableDistance) && hitInfo.transform.tag == "Breakable")
+            if (Input.GetMouseButtonDown(0))
             {
-                text.text = FlickDirection;
-                //ポイ
-                Destroy(hitInfo.transform.gameObject);
+                touchdown = Input.mousePosition;
+                Debug.Log(touchdown.ToString());
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                touchup = Input.mousePosition;
+                Debug.Log(touchup.ToString());
+                Doattack();
+            }
+            if (Input.GetKey(KeyCode.B))
+            {
+                ray = playerCamera.ScreenPointToRay(Input.mousePosition);
+                //rayが当たっている物と当たっているかの判定
+                if (Physics.Raycast(ray, out hitInfo, reachableDistance) && hitInfo.transform.tag == "Breakable")
+                {
+                    //text.text = FlickDirection;
+                    //ポイ
+                    Destroy(hitInfo.transform.gameObject);
+                }
             }
         }
     }
@@ -54,12 +61,17 @@ public class DestroyScript : MonoBehaviour {
 
     private void Doattack()
     {
+        Debug.Log("Doattack()が呼ばれました");
         //rayの取得
         ray = playerCamera.ScreenPointToRay(touchdown);
+        Debug.Log("rayの決定");
         //rayが当たっている物と当たっているかの判定
-        if (Physics.Raycast(ray, out hitInfo, reachableDistance) && hitInfo.transform.tag == "Breakable")
+        if (!(Physics.Raycast(ray, out hitInfo, reachableDistance))) { return; }
+        if (hitInfo.transform.tag == "Breakable")
         {
-            text.text = Input.mousePosition.ToString();
+
+            Debug.Log("ray照射:true");
+            //text.text = Input.mousePosition.ToString();
             if (isFlick()) //タップがフリックなら
             {
                 //text.text = FlickDirection;
@@ -69,8 +81,9 @@ public class DestroyScript : MonoBehaviour {
                 anim.Stop();
                 anim.Play();
             }
-            
+
         }
+
     }
 
     public void DamageBlock(GameObject tool,GameObject Block)
@@ -80,17 +93,49 @@ public class DestroyScript : MonoBehaviour {
         if (tool.GetComponent<ToolScript>().tool == Block.GetComponent<BlockScript>().aptitude) damage *= 5; //toolとブロックの適正チェック
         Block.GetComponent<BlockScript>().blockHp -= damage;//ブロックのhpを削る
         changeDamageText(damage);//ダメージ表示メソッドへ
-        if (Block.GetComponent<BlockScript>().blockHp < 0) Destroy(Block);//削り切ったらデストロイ
+        if (Block.GetComponent<BlockScript>().blockHp < 0)
+        {
+            PlaySound(Block, "destroy");
+            Destroy(Block);//削り切ったらデストロイ
+        }
+        else
+        {
+            PlaySound(Block, "attack");
+        }
         if (tool.name != "Hand")
         {
-            tool.GetComponent<ToolScript>().dmgDurability -= Block.GetComponent<BlockScript>().hardend / (damage / 10); //toolの耐久値減少
+            tool.GetComponent<ToolScript>().dmgDurability -= Block.GetComponent<BlockScript>().hardend / (damage / 10 + 1); //toolの耐久値減少
         }
+    }
+
+    private void PlaySound(GameObject block, string v)
+    {
+        string toolName = block.GetComponent<BlockScript>().itemId;
+        int playNumber;
+        switch (toolName)
+        {
+            case "block_stone":
+                playNumber = 0;
+                break;
+            case "block_iron":
+                playNumber = 2;
+                break;
+            case "block_wood":
+                playNumber = 4;
+                break;
+            default: return;
+        }
+        if (v.Equals("destroy"))
+        {
+            playNumber++;
+        }
+        GetComponent<AudioSource>().PlayOneShot(BlockClips[playNumber]);
     }
 
     void changeDamageText(int damage)      //ダメージ表示
     {
         damageText.text = damage.ToString();
-        dmgtxtManager.transform.position = Input.mousePosition;
+        dmgtxtManager.transform.position = touchdown;
         dmgtxtanim.Stop();
         dmgtxtanim.Play();
     }
@@ -120,6 +165,7 @@ public class DestroyScript : MonoBehaviour {
             else if (-1 * hosei > di_Y) direction = "down"; //↓
         }
         else direction = "tap";
+        Debug.Log("Direction : " + direction);
         return direction;
     }
 
